@@ -1,4 +1,4 @@
-create database c1022g1_module3;
+create database ss1_csdl_quan_he;
 
 create table class(
 	id int,
