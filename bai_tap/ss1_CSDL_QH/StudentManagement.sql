@@ -1,14 +1,16 @@
 create database ss1_csdl_quan_he;
 
-create table class(
-	id int,
-    `name` varchar(45)
-
+CREATE TABLE class (
+    id INT,
+    `name` VARCHAR(45)
 );
 
 insert into class (id,`name`) value (1,'c1022g1');
 
-select * from class;
+SELECT 
+    *
+FROM
+    class;
 
 select id as 'Mã Số', name 'Tên Lớp' from class;
 
