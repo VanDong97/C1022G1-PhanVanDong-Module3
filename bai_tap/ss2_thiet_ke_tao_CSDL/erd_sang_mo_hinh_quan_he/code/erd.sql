@@ -1,4 +1,4 @@
-create database ss2_thietke_tao_csdl_bai_1;
+create database ss2_thietke_tao_csdl_erd;
 
 CREATE TABLE phieu_xuat (
     so_phieu_xuat INT AUTO_INCREMENT PRIMARY KEY,
