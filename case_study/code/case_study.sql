@@ -1,8 +1,8 @@
 create database case_study;
 
-create table vi_tri(
-	ma_vi_tri int auto_increment primary key,
-    ten_vi_tri varchar(45)
+CREATE TABLE vi_tri (
+    ma_vi_tri INT AUTO_INCREMENT PRIMARY KEY,
+    ten_vi_tri VARCHAR(45)
 );
 insert into vi_tri(ten_vi_tri) value ('Quản Lí');
 insert into vi_tri(ten_vi_tri) value ('Nhân Viên');
@@ -58,6 +58,11 @@ create table loai_khach(
 	ma_loai_khach int auto_increment primary key,
     ten_loai_khach varchar(45)
 );
+	insert into loai_khach(ten_loai_khach) value ('Diamond');
+	insert into loai_khach(ten_loai_khach) value ('Platinium');
+	insert into loai_khach(ten_loai_khach) value ('Gold');
+	insert into loai_khach(ten_loai_khach) value ('Silver');
+	insert into loai_khach(ten_loai_khach) value ('Member');
 
 create table khach_hang(
 	ma_khach_hang int auto_increment primary key,
@@ -72,4 +77,73 @@ create table khach_hang(
     
     foreign key (ma_loai_khach) references loai_khach(ma_loai_khach)
 );
+
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Nguyễn Thị Hào','1970-11-07',0,'643431213','0945423362','thihao07@gmail.com','23 Nguyễn Hoàng, Đà Nẵng',5);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Phạm Xuân Diệu','1992-08-08',1,'865342123','0954333333','xuandieu92@gmail.com','K77/22 Thái Phiên, Quảng Trị',3);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Trương Đình Nghệ','1990-02-27',1,'488645199','0373213122','nghenhan2702@gmail.com','K323/12 Ông Ích Khiêm, Vinh',1);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Dương Văn Quan','1981-07-08',1,'543432111','0490039241','duongquan@gmail.com','K453/12 Lê Lợi, Đà Nẵng',1);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Hoàng Trần Nhi Nhi','1995-12-09',0,'795453345','0312345678','nhinhi123@gmail.com','224 Lý Thái Tổ, Gia Lai',4);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Tôn Nữ Mộc Châu','2005-12-06',0,'732434215','0988888844','tonnuchau@gmail.com','37 Yên Thế, Đà Nẵng',4);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Nguyễn Mỹ Kim','1984-04-08',0,'856453123','0912345698','kimcuong84@gmail.com','K123/45 Lê Lợi, Hồ Chí Minh',1);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Nguyễn Thị Hào','1999-04-08',0,'965656433','0763212345','haohao99@gmail.com','55 Nguyễn Văn Linh, Kon Tum',3);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Trần Đại Danh','1994-07-01',1,'432341235','0643343433','danhhai99@gmail.com','24 Lý Thường Kiệt, Quảng Ngãi',1);
+	insert into khach_hang(ho_ten,ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi,ma_loai_khach) value ('Nguyễn Tâm Đắc','1989-07-01',1,'344343432','0987654321','dactam@gmail.com','22 Ngô Quyền, Đà Nẵng',2);
+
+create table loai_dich_vu(
+	ma_loai_dich_vu int auto_increment primary key,
+    ten_loai_dich_vu varchar(45)
+);
+	insert into loai_dich_vu (ten_loai_dich_vu) value ('Villa');
+	insert into loai_dich_vu (ten_loai_dich_vu) value ('House');
+	insert into loai_dich_vu (ten_loai_dich_vu) value ('Room');
+
+create table kieu_thue(
+	ma_kieu_thue int auto_increment primary key,
+    ten_kieu_thue varchar(45)
+);
+
+	insert into kieu_thue (ten_kieu_thue) value ('Year');
+	insert into kieu_thue (ten_kieu_thue) value ('Month');
+	insert into kieu_thue (ten_kieu_thue) value ('Day');
+	insert into kieu_thue (ten_kieu_thue) value ('Hour');
+
+create table dich_vu(
+	ma_dich_vu int auto_increment primary key,
+    ten_dich_vu varchar (45) not null,
+    dien_tich int ,
+    chi_phi_thue double not null,
+    so_nguoi_toi_da int,
+    tieu_chuan_phong varchar(45),
+    mo_ta_tien_nghi_khac varchar(45),
+    dien_tich_ho_boi double,
+    so_tang int,
+    dich_vu_mien_phi_di_kem text,
+    ma_kieu_thue int not null,
+    ma_loai_dich_vu int  not null,
+    foreign key (ma_kieu_thue) references kieu_thue (ma_kieu_thue),
+    foreign key (ma_loai_dich_vu) references loai_dich_vu (ma_loai_dich_vu)
+);
+
+	insert into dich_vu (ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang,dich_vu_mien_phi_di_kem,ma_kieu_thue,ma_loai_dich_vu) value ('Villa Beach Front',25000,'1000000',10,'vip','Có hồ bơi','500',4,null,3,1);
+	insert into dich_vu (ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang,dich_vu_mien_phi_di_kem,ma_kieu_thue,ma_loai_dich_vu) value ('House Princess 01',14000,'5000000',7,'vip','Có thêm bếp nướng',null,3,null,2,2);
+	insert into dich_vu (ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang,dich_vu_mien_phi_di_kem,ma_kieu_thue,ma_loai_dich_vu) value ('Room Twin 01',5000,'1000000',2,'normal','Có tivi',null,null,'1 Xe máy, 1 Xe Đạp',4,3);
+	insert into dich_vu (ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang,dich_vu_mien_phi_di_kem,ma_kieu_thue,ma_loai_dich_vu) value ('Villa No Beach Front',22000,'9000000',8,'normal','Có hồ bơi','300',3,null,3,1);
+	insert into dich_vu (ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang,dich_vu_mien_phi_di_kem,ma_kieu_thue,ma_loai_dich_vu) value ('House Princess 02',10000,'4000000',5,'normal','Có thêm bếp nướng',null,2,null,3,2);
+	insert into dich_vu (ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang,dich_vu_mien_phi_di_kem,ma_kieu_thue,ma_loai_dich_vu) value ('Room Twin 02',3000,'900000',2,'normal','Có tivi',null,null,'1 Xe máy',4,3);
+    
+create table dich_vu_di_kem(
+	ma_dich_vu_di_kem int auto_increment primary key,
+    ten_dich_vu_di_kem varchar(45) not null,
+    gia double not null,
+    don_vi varchar(45) not null,
+    trang_thai varchar(45)
+);
+
+insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia,don_vi,trang_thai) value ('Karaoke','10000','giờ','tiện nghi, hiện đại');
+insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia,don_vi,trang_thai) value ('Thuê xe máy','10000','chiếc','hỏng 1 chiếc xe');
+insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia,don_vi,trang_thai) value ('Thuê xe đạp','20000','chiếc','tốt');
+insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia,don_vi,trang_thai) value ('Buffet buổi sáng','15000','suất','đầy đủ đồ ăn, tráng miệng');
+insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia,don_vi,trang_thai) value ('Buffet buổi trưa','90000','suât','đầy đủ đồ ăn, tráng miệng');
+insert into dich_vu_di_kem(ten_dich_vu_di_kem,gia,don_vi,trang_thai) value ('Buffet buổi tối','16000','suất','đầy đủ đồ ăn, tráng miệng');
+    
 
