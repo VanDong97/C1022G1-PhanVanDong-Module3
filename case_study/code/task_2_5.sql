@@ -3,17 +3,15 @@ use case_study;
 -- 2.	Hiển thị thông tin của tất cả nhân viên có trong
 -- hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
 
-select 
+SELECT 
     *
-from
+FROM
     nhan_vien
-where
-    substring_index(nhan_vien.ho_ten, ' ', - 1) like 'H%'
-        or substring_index(nhan_vien.ho_ten, ' ', - 1) like 'T%'
-        or substring_index(nhan_vien.ho_ten, ' ', - 1) like 'K%'
-        and length(ho_ten) < 16;
-	
--- 3.	hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi 
+WHERE
+    SUBSTRING_INDEX(nhan_vien.ho_ten, ' ', - 1) LIKE 'H%'
+        OR SUBSTRING_INDEX(nhan_vien.ho_ten, ' ', - 1) LIKE 'T%'
+        OR SUBSTRING_INDEX(nhan_vien.ho_ten, ' ', - 1) LIKE 'K%'
+        AND LENGTH(ho_ten) < 16độ tuổi từ 18 đến 50 tuổi 
 -- và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 
 SELECT 
