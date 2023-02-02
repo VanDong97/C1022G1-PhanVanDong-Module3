@@ -112,4 +112,4 @@ join hop_dong hd on nv.ma_nhan_vien = hd.ma_nhan_vien
 join trinh_do td on nv.ma_trinh_do = td.ma_trinh_do
 join bo_phan bp on nv.ma_bo_phan = bp.ma_bo_phan
 group by nv.ma_nhan_vien
-having count(nv.ma_nhan_vien) < 4;
+having count(hd.ma_hop_dong) < 4;
