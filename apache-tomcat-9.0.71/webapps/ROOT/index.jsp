@@ -1,56 +1,65 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 2/9/2023
-  Time: 11:41 AM
+  Date: 2/10/2023
+  Time: 3:18 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Product Discount Calculator</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap.css/bootstrap.js">
-    <style>
-        .h1{
-            text-align: center;
-            font-size: 50px;
-        }
-        .form-group{
-            text-align: center;
-            margin: 20px;
-        }
-        .submit{
-            text-align: center;
-            font-size: 20px;
-            margin: 10px;
-        }
-    </style>
 </head>
 <body>
-<h1 class="h1">Product Discount Calculator</h1>
-<form action="/product" method="get">
-    <div class="form-group">
-        <label for="product-description">Product Description</label>
-        <input type="text" class="form-control" name="product-description" id="product-description">
-    </div>
-    <div class="form-group">
-        <label for="list-price">List Price</label>
-        <input type="text" class="form-control" name="list-price" id="list-price">
-    </div>
-    <div class="form-group">
-        <label for="discount-percent">Discount Percent</label>
-        <input type="text" class="form-control" name="discount-percent" id="discount-percent">
-    </div>
-    <div class="submit">
-        <input class="btn btn-primary" type="submit">
-    </div>
+<form action="/pt" method="get">
+    <table>
+        <tr>
+            <td>
+                <label for="number1">
+                    Nhập số thứ nhất
+                </label>
+            </td>
+            <td><input type="number1" class="form-control" name="n1" id="number1"></td>
+        </tr>
+        <tr>
+            <td>
+                <p>Nhập phép tính</p>
+            </td>
+            <td>
+                <select name="calculation">
+                    <option value="+"> +</option>
+                    <option value="-"> -</option>
+                    <option value="*"> *</option>
+                    <option value="/"> /</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="number2">
+                    Nhập số tiếp theo
+                </label>
+            </td>
+            <td>
+                <input type="number2" class="form-control" name="n2" id="number2">
+            </td>
+        </tr>
+    <tr>
+        <td>
+            <input class="btn btn-primary" type="submit" value="Kiểm Tra">
+        </td>
+    </tr>
+    </table>
 </form>
+
+<h2>${result}</h2>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

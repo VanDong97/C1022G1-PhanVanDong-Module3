@@ -20,16 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="808f2b7c-d6c8-4791-9db0-ec8bac8f0d16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/src/main/java/ProductServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai_tap/sss8_bootstrap/bai_1/bai_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai_tap/sss8_bootstrap/bai_2/bai_2.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.idea/ss9_tong_quan_ung_dung_webb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apache-tomcat-9.0.71/webapps/ROOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/apache-tomcat-9.0.71/webapps/ROOT/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apache-tomcat-9.0.71/webapps/ROOT/result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/apache-tomcat-9.0.71/webapps/ROOT/result.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/build/libs/ss9_tong_quan_ung_dung_webb-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/build/libs/ss9_tong_quan_ung_dung_webb-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/ss9_tong_quan_ung_dung_webb/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +156,7 @@
       <workItem from="1675847538378" duration="17000" />
       <workItem from="1675847751488" duration="18000" />
       <workItem from="1675929206843" duration="55000" />
+      <workItem from="1676000979481" duration="24000" />
     </task>
     <servers />
   </component>

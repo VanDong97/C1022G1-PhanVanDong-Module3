@@ -1,29 +1,43 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 2/9/2023
-  Time: 3:19 PM
+  Date: 2/10/2023
+  Time: 10:46 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Product Discount Calculator</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hiển Thị Danh Sách Khách Hàng</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.css/bootstrap.js">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap.css/bootstrap.js">
 </head>
 <body>
-<form action="/product">
-    <p>Product Discount Calculator</p>
-<h2>${sum}</h2>
-<h2>${productDescription}</h2>
-<h2>${discountPercent}</h2>
-</form>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Tên</th>
+    <th>Ngày Sinh</th>
+    <th>Địa Chỉ</th>
+    <th>Hình Ảnh</th>
+  </tr>
+  </thead>
+  <tbody>
+  <c:forEach var="customer" items="${customerList}">
+    <tr>
+      <td>${customer.name}"</td>
+      <td>${customer.dateOfBirth}</td>
+      <td>${customer.address}</td>
+      <td><img src="${customer.img}" style="height: 100px" width="140px"></td>
+    </tr>
+  </c:forEach>
+  </tbody>
+</table>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
