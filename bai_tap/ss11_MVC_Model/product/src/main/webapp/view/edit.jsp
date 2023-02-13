@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: user
   Date: 2/13/2023
-  Time: 11:40 AM
+  Time: 8:30 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,10 +15,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.css/bootstrap.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a class="btn-primary" href="/product?actionUser=create">Thêm mới</a>
+<form method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" value="${product.name}">
+    </div>
+    <div class="form-group">
+        <label for="price">Prrice</label>
+        <input type="text" class="form-control" name="price" id="price" value="${product.price}">
+    </div>
+    <div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" class="form-control" name="status" id="status" value="${product.status}">
+    </div>
+    <div class="form-group">
+        <label for="producer">Producer</label>
+        <input type="text" class="form-control" name="producer" id="producer" value="${product.producer}">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Cập Nhật">
+</form>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

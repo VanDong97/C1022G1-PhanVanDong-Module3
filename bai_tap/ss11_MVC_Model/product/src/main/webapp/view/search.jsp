@@ -1,24 +1,51 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
   Date: 2/13/2023
-  Time: 11:40 AM
+  Time: 9:31 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Product</title>
+    <title>Search</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.css/bootstrap.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<a class="btn-primary" href="/product?actionUser=create">Thêm mới</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="product" items="${productList}" varStatus="stt">
+        <tr>
+            <td>${stt.count}</td>
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+            <td>${product.status}</td>
+            <td>${product.producer}</td>
+            <th><a href="/product?actionUser=update&id=${product.id}" class="btn btn-secondary"></a>Update</th>
+            <th><a href="/product?actionUser=delete&id=${product.id}" class="btn btn-danger"></a>Delete</th>
+            <th></th>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

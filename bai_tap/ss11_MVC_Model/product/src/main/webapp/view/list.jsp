@@ -33,11 +33,11 @@
     <tbody>
     <c:forEach var="product" items="${productList}" varStatus="loop">
         <tr>
-        <td>${loop.count}</td>
-        <td>${product.name}</td>
-        <td>${product.price}</td>
-        <td>${product.status}</td>
-        <td>${product.producer}</td>
+            <td>${loop.count}</td>
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+            <td>${product.status}</td>
+            <td>${product.producer}</td>
         </tr>
     </c:forEach>
     </tbody>
