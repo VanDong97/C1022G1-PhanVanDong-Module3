@@ -1,15 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 2/10/2023
-  Time: 3:18 PM
+  Date: 2/13/2023
+  Time: 3:05 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Title</title>
+    <title>Product</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,49 +19,29 @@
     <link rel="stylesheet" href="bootstrap.css/bootstrap.js">
 </head>
 <body>
-</div>
-<form action="/pt" method="get">
-    <table>
+<a class="btn btn-primary" href="/product?actionUser=create">Thêm mới</a>
+<table border="2">
+    <thead>
+    <tr>
+        <td>STT</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Status</td>
+        <td>Producer</td>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="product" items="${productList}" varStatus="loop">
         <tr>
-            <td>
-                <label for="number1">
-                    Nhập số thứ nhất
-                </label>
-            </td>
-            <td><input type="number1" class="form-control" name="n1" id="number1"></td>
+        <td>${loop.count}</td>
+        <td>${product.name}</td>
+        <td>${product.price}</td>
+        <td>${product.status}</td>
+        <td>${product.producer}</td>
         </tr>
-        <tr>
-            <td>
-                <p>Nhập phép tính</p>
-            </td>
-            <td>
-                <select name="calculation">
-                    <option value="+"> +</option>
-                    <option value="-"> -</option>
-                    <option value="*"> *</option>
-                    <option value="/"> /</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="number2">
-                    Nhập số tiếp theo
-                </label>
-            </td>
-            <td>
-                <input type="number2" class="form-control" name="n2" id="number2">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input class="btn btn-primary" type="submit" value="Kiểm Tra">
-            </td>
-        </tr>
-    </table>
-</form>
-
-<h2>${result}</h2>
+    </c:forEach>
+    </tbody>
+</table>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
