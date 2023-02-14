@@ -20,7 +20,42 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-
+<center>
+    <h1>User Management</h1>
+    <h2>
+        <a href="/users?action=users">List All Users</a>
+    </h2>
+</center>
+<div align="center">
+    <form method="post">
+        <caption>
+            <h2>Add New Users</h2>
+        </caption>
+        <tr>
+            <th>User Name</th>
+            <td>
+                <input class="btn btn-primary" type="text" name="name" id="name" size="45">
+            </td>
+        </tr>
+        <tr>
+            <th>User Email</th>
+            <td>
+                <input name="email" id="email" class="btn btn-primary" type="text" size="45">
+            </td>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td>
+                <input name="country" id="country" class="btn btn-primary" type="text" size="15">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Save">
+            </td>
+        </tr>
+    </form>
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

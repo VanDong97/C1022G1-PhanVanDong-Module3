@@ -85,7 +85,7 @@ public class UserServlet extends HttpServlet {
         requestDispatcher.forward(request, response);
     }
 
-    private void showEditForms(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void showEditForms(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -93,6 +93,8 @@ public class UserServlet extends HttpServlet {
 
         UserManager userManager = new UserManager(id, name, email, country);
         UserRepository.updateUser(userManager);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/edit.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
