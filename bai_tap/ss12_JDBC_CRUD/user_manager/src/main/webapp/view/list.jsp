@@ -20,13 +20,11 @@
     <link rel="stylesheet" href="bootstrap.css/bootstrap.js">
 </head>
 <body>
-<center>
     <h1>User Management</h1>
     <h2>
         <a href="/users?action=create">Add New User</a>
     </h2>
-</center>
-<div align="center">
+<div>
     <table border="1" cellpadding="5">
         <caption><h2>List Of User</h2></caption>
         <tr>
@@ -34,17 +32,20 @@
             <th>Name</th>
             <th>Email</th>
             <th>Country</th>
-            <th>Action</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
-        <c:forEach var="user" items="${listUser}">
+        <c:forEach var="user" items="${userList}" varStatus="stt">
             <tr>
-                <td>${user.id}</td>
+                <td>${stt.count}</td>
                 <td>${user.name}</td>
                 <td>${user.email}</td>
                 <td>${user.country}</td>
                 <td>
                     <a href="/users?action=edit$id=${user.id}">Edit</a>
-                    <a href="/users?action=delete$id=${user.id}">Delete</a>
+                </td>
+                <td>
+                    <button type="button" onclick="deleteInfo('${user.id}','${user.name}')" class="btn btn-primary">Delete</button>
                 </td>
             </tr>
         </c:forEach>

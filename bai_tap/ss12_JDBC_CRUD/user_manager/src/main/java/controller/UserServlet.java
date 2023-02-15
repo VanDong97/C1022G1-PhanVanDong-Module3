@@ -2,6 +2,8 @@ package controller;
 
 import model.UserManager;
 import repository.impl.UserRepository;
+import service.IUserService;
+import service.impl.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,113 +18,124 @@ import java.util.List;
 
 @WebServlet(name = "UserServlet", value = "/users")
 public class UserServlet extends HttpServlet {
-    private static final long serialVersionUD = 1L;
-    private UserRepository UserRepository;
-
-    public void init() {
-        UserRepository = new UserRepository();
-    }
-
+    IUserService iUserService = new UserService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null) {
+        if(action == null){
             action = "";
         }
-        try {
-            switch (action) {
-                case "create":
-                    showNewForms(request, response);
-                    break;
-                case "edit":
-                    showEditForms(request, response);
-                    break;
-            }
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
+        switch (action){
+            case "add":
+                formAdd(request,response);
+                break;
+            case "update":
+                formUpdate(request,response);
+                break;
+            case "delete":
+                formDelete(request,response);
+                break;
+            default:
+                break;
         }
     }
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null) {
+        if (action == null){
             action = "";
         }
+        switch (action){
+            case "add":
+                showFormAdd(request,response);
+                break;
+            case "update":
+                showFormUpdate(request,response);
+                break;
+            default:
+                showList(request,response);
+                break;
+        }
+    }
+
+    private void formAdd(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        UserManager userManager = new UserManager(name,email,country);
+        iUserService.add(userManager);
         try {
-            switch (action) {
-                case "create":
-                    showNewForm(request, response);
-                    break;
-                case "edit":
-                    showEditForm(request, response);
-                    break;
-                case "delete":
-                    deleteUser(request, response);
-                    break;
-                default:
-                    listUser(request, response);
-                    break;
-            }
+            response.sendRedirect("/users");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void formUpdate(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        UserManager userManager = iUserService.finById(id);
+        userManager.setName(name);
+        userManager.setEmail(email);
+        userManager.setCountry(country);
+        iUserService.update(userManager);
+        try {
+            response.sendRedirect("/users");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void formDelete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("deleteID"));
+        UserManager userManager = iUserService.finById(id);
+        iUserService.delete(userManager);
+        try {
+            response.sendRedirect("/users");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void showFormAdd(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        UserManager userManager = new UserManager(name,email,country);
+        iUserService.add(userManager);
+        try {
+            response.sendRedirect("/users");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        UserManager userManager = iUserService.finById(id);
+        request.setAttribute("userManager",userManager);
+        try{
+            request.getRequestDispatcher("/view/update.jsp").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (SQLException exception) {
-            exception.printStackTrace();
         }
     }
 
-    private void showNewForms(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
+    private void showList(HttpServletRequest request, HttpServletResponse response) {
         String country = request.getParameter("country");
-        UserManager userManager = new UserManager(name, email, country);
-        UserRepository.insertUser(userManager);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/create.jsp");
-        requestDispatcher.forward(request, response);
-    }
-
-    private void showEditForms(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String country = request.getParameter("country");
-
-        UserManager userManager = new UserManager(id, name, email, country);
-        UserRepository.updateUser(userManager);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/edit.jsp");
-        requestDispatcher.forward(request, response);
-    }
-
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        UserManager manager = UserRepository.selectUser(id);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/edit.jsp");
-        requestDispatcher.forward(request, response);
-    }
-
-    private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/create.jsp");
-        requestDispatcher.forward(request, response);
-    }
-
-    private void listUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<UserManager> userManagerList = UserRepository.selectAllUsers();
-        request.setAttribute("userManagerList", userManagerList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/view/list.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        UserRepository.deleteUser(id);
-
-        List<UserManager> userManagerList = UserRepository.selectAllUsers();
-        request.setAttribute("userManagerList", userManagerList);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/view/delete.jsp");
-        requestDispatcher.forward(request, response);
+        request.setAttribute("country",country);
+        List<UserManager> userManagerList = iUserService.listAll(country);
+        request.setAttribute("userManagerList",userManagerList);
+        try {
+            request.getRequestDispatcher("/view/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

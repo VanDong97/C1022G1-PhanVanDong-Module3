@@ -6,13 +6,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IUserRepository {
-    public void insertUser(UserManager userManager) throws SQLException;
+    void add(UserManager userManager);
 
-    public UserManager selectUser(int id);
+    UserManager findById(int id);
 
-    public List<UserManager> selectAllUsers();
+    List<UserManager> listAll (String country);
 
-    public boolean deleteUser(int id) throws SQLException;
+    void delete(UserManager userManager);
 
-    public boolean updateUser (UserManager userManager) throws SQLException ;
+    void update(UserManager userManager);
+
 }

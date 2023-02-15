@@ -21,8 +21,7 @@ FROM
 WHERE
     lk.ten_loai_khach = 'Diamond'
         AND kh.dia_chi LIKE '% Vinh'
-        OR kh.dia_chi LIKE '% Quảng Ngãi';
--- 12: so_dien_thoai (khách hàng), ten_dich_vu, so_luong_dich_vu_di_kem 
+        OR kh.dia_chi LIKE '% Quảng Ngãi'uong_dich_vu_di_kem 
 -- (được tính dựa trên việc sum so_luong ở dich_vu_di_kem), 
 -- tien_dat_coc của tất cả các dịch vụ đã từng được khách hàng đặt 
 -- vào 3 tháng cuối năm 2020 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
